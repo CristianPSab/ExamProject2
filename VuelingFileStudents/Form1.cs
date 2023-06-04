@@ -1,40 +1,48 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace VuelingFileStudents
 {
-    internal class Form1 : Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
         private Label lbName;
         private Label lbSurname;
         private Label lbBirthday;
+        private Label lbSave;
+        private Button btnSave;
         private TextBox tbName;
         private TextBox tbBirthday;
-        private Label lbNewStudent;
-        private Label lbSaveFormat;
-        private Button btnTxt;
-        private Button btnXml;
-        private Button btnJsn;
         private TextBox tbSurname;
+        private RadioButton rdbTxt;
+        private RadioButton rdbXml;
+        private RadioButton rdbJson;
+        private Label label1;
+
+        public Form1 () 
+        {
+            InitializeComponent();
+
+        }
 
         private void InitializeComponent()
         {
             this.lbName = new System.Windows.Forms.Label();
             this.lbSurname = new System.Windows.Forms.Label();
             this.lbBirthday = new System.Windows.Forms.Label();
+            this.lbSave = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbBirthday = new System.Windows.Forms.TextBox();
             this.tbSurname = new System.Windows.Forms.TextBox();
-            this.lbNewStudent = new System.Windows.Forms.Label();
-            this.lbSaveFormat = new System.Windows.Forms.Label();
-            this.btnTxt = new System.Windows.Forms.Button();
-            this.btnXml = new System.Windows.Forms.Button();
-            this.btnJsn = new System.Windows.Forms.Button();
+            this.rdbTxt = new System.Windows.Forms.RadioButton();
+            this.rdbXml = new System.Windows.Forms.RadioButton();
+            this.rdbJson = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lbName
             // 
             this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(183, 61);
+            this.lbName.Location = new System.Drawing.Point(164, 69);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(69, 20);
             this.lbName.TabIndex = 0;
@@ -43,7 +51,7 @@ namespace VuelingFileStudents
             // lbSurname
             // 
             this.lbSurname.AutoSize = true;
-            this.lbSurname.Location = new System.Drawing.Point(187, 148);
+            this.lbSurname.Location = new System.Drawing.Point(164, 139);
             this.lbSurname.Name = "lbSurname";
             this.lbSurname.Size = new System.Drawing.Size(77, 20);
             this.lbSurname.TabIndex = 1;
@@ -52,105 +60,105 @@ namespace VuelingFileStudents
             // lbBirthday
             // 
             this.lbBirthday.AutoSize = true;
-            this.lbBirthday.Location = new System.Drawing.Point(187, 231);
+            this.lbBirthday.Location = new System.Drawing.Point(164, 208);
             this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(161, 20);
+            this.lbBirthday.Size = new System.Drawing.Size(170, 20);
             this.lbBirthday.TabIndex = 2;
-            this.lbBirthday.Text = "Fecha de nacimiento:";
+            this.lbBirthday.Text = "Fecha de cumpleaños:";
+            // 
+            // lbSave
+            // 
+            this.lbSave.AutoSize = true;
+            this.lbSave.Location = new System.Drawing.Point(74, 276);
+            this.lbSave.Name = "lbSave";
+            this.lbSave.Size = new System.Drawing.Size(153, 20);
+            this.lbSave.TabIndex = 3;
+            this.lbSave.Text = "Guardar en formato:";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(897, 316);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(117, 37);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(446, 55);
+            this.tbName.Location = new System.Drawing.Point(428, 47);
             this.tbName.Multiline = true;
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(335, 43);
-            this.tbName.TabIndex = 3;
+            this.tbName.Size = new System.Drawing.Size(391, 42);
+            this.tbName.TabIndex = 7;
             // 
             // tbBirthday
             // 
-            this.tbBirthday.Location = new System.Drawing.Point(446, 228);
+            this.tbBirthday.Location = new System.Drawing.Point(428, 182);
             this.tbBirthday.Multiline = true;
             this.tbBirthday.Name = "tbBirthday";
-            this.tbBirthday.Size = new System.Drawing.Size(335, 47);
-            this.tbBirthday.TabIndex = 4;
+            this.tbBirthday.Size = new System.Drawing.Size(391, 46);
+            this.tbBirthday.TabIndex = 8;
             // 
             // tbSurname
             // 
-            this.tbSurname.Location = new System.Drawing.Point(446, 142);
+            this.tbSurname.Location = new System.Drawing.Point(428, 117);
             this.tbSurname.Multiline = true;
             this.tbSurname.Name = "tbSurname";
-            this.tbSurname.Size = new System.Drawing.Size(335, 50);
-            this.tbSurname.TabIndex = 5;
+            this.tbSurname.Size = new System.Drawing.Size(391, 42);
+            this.tbSurname.TabIndex = 9;
             // 
-            // lbNewStudent
+            // rdbTxt
             // 
-            this.lbNewStudent.AutoSize = true;
-            this.lbNewStudent.Location = new System.Drawing.Point(42, 22);
-            this.lbNewStudent.Name = "lbNewStudent";
-            this.lbNewStudent.Size = new System.Drawing.Size(138, 20);
-            this.lbNewStudent.TabIndex = 6;
-            this.lbNewStudent.Text = "Añadir estudiante:";
+            this.rdbTxt.AutoSize = true;
+            this.rdbTxt.Location = new System.Drawing.Point(428, 274);
+            this.rdbTxt.Name = "rdbTxt";
+            this.rdbTxt.Size = new System.Drawing.Size(63, 24);
+            this.rdbTxt.TabIndex = 10;
+            this.rdbTxt.TabStop = true;
+            this.rdbTxt.Text = "TXT";
+            this.rdbTxt.UseVisualStyleBackColor = true;
             // 
-            // lbSaveFormat
+            // rdbXml
             // 
-            this.lbSaveFormat.AutoSize = true;
-            this.lbSaveFormat.Location = new System.Drawing.Point(122, 346);
-            this.lbSaveFormat.Name = "lbSaveFormat";
-            this.lbSaveFormat.Size = new System.Drawing.Size(153, 20);
-            this.lbSaveFormat.TabIndex = 7;
-            this.lbSaveFormat.Text = "Guardar en formato:";
+            this.rdbXml.AutoSize = true;
+            this.rdbXml.Location = new System.Drawing.Point(600, 276);
+            this.rdbXml.Name = "rdbXml";
+            this.rdbXml.Size = new System.Drawing.Size(67, 24);
+            this.rdbXml.TabIndex = 11;
+            this.rdbXml.TabStop = true;
+            this.rdbXml.Text = "XML";
+            this.rdbXml.UseVisualStyleBackColor = true;
             // 
-            // btnTxt
+            // rdbJson
             // 
-            this.btnTxt.Location = new System.Drawing.Point(389, 361);
-            this.btnTxt.Name = "btnTxt";
-            this.btnTxt.Size = new System.Drawing.Size(111, 39);
-            this.btnTxt.TabIndex = 8;
-            this.btnTxt.Text = "TXT";
-            this.btnTxt.UseVisualStyleBackColor = true;
-            // 
-            // btnXml
-            // 
-            this.btnXml.Location = new System.Drawing.Point(592, 361);
-            this.btnXml.Name = "btnXml";
-            this.btnXml.Size = new System.Drawing.Size(111, 39);
-            this.btnXml.TabIndex = 9;
-            this.btnXml.Text = "XML";
-            this.btnXml.UseVisualStyleBackColor = true;
-            // 
-            // btnJsn
-            // 
-            this.btnJsn.Location = new System.Drawing.Point(786, 361);
-            this.btnJsn.Name = "btnJsn";
-            this.btnJsn.Size = new System.Drawing.Size(111, 39);
-            this.btnJsn.TabIndex = 10;
-            this.btnJsn.Text = "JSON";
-            this.btnJsn.UseVisualStyleBackColor = true;
+            this.rdbJson.AutoSize = true;
+            this.rdbJson.Location = new System.Drawing.Point(734, 274);
+            this.rdbJson.Name = "rdbJson";
+            this.rdbJson.Size = new System.Drawing.Size(76, 24);
+            this.rdbJson.TabIndex = 12;
+            this.rdbJson.TabStop = true;
+            this.rdbJson.Text = "JSON";
+            this.rdbJson.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1097, 448);
-            this.Controls.Add(this.btnJsn);
-            this.Controls.Add(this.btnXml);
-            this.Controls.Add(this.btnTxt);
-            this.Controls.Add(this.lbSaveFormat);
-            this.Controls.Add(this.lbNewStudent);
+            this.ClientSize = new System.Drawing.Size(1073, 384);
+            this.Controls.Add(this.rdbJson);
+            this.Controls.Add(this.rdbXml);
+            this.Controls.Add(this.rdbTxt);
             this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.tbBirthday);
             this.Controls.Add(this.tbName);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lbSave);
             this.Controls.Add(this.lbBirthday);
             this.Controls.Add(this.lbSurname);
             this.Controls.Add(this.lbName);
             this.Name = "Form1";
-            this.Text = "Student Vueling University";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Students Vueling University";
             this.ResumeLayout(false);
             this.PerformLayout();
-
-        }
-
-        private void Form1_Load(object sender, System.EventArgs e)
-        {
 
         }
     }
