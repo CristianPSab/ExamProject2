@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace VuelingFileStudents
 {
-    public partial class Form1 : Form
+    internal partial class Form1 : Form
     {
+<<<<<<< Updated upstream:VuelingFileStudents/AddStudent.cs
         public Form1()
         {
             InitializeComponent();
@@ -23,5 +16,7 @@ namespace VuelingFileStudents
         }
 
    
+=======
+>>>>>>> Stashed changes:VuelingFileStudents/Form1.cs
     }
 }
