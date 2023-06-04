@@ -49,9 +49,6 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -75,6 +72,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VuelingFileStudents.Business.Rules\VuelingFileStudents.Business.Rules.csproj">
+      <Project>{84a9167c-8f1c-4dde-9a64-27c844ca1b0f}</Project>
+      <Name>VuelingFileStudents.Business.Rules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VuelingFileStudents.Transversal.Utilities\VuelingFileStudents.Transversal.Utilities.csproj">
+      <Project>{5545b6cc-a446-4cfc-8685-c3d9a930f289}</Project>
+      <Name>VuelingFileStudents.Transversal.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

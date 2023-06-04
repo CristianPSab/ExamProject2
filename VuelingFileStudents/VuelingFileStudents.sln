@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileStudents", "VuelingFileStudents.csproj", "{9F26ABF4-4288-4C56-89E2-C590BABCC625}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileStudents.Presentation.WinSite", "VuelingFileStudents.Presentation.WinSite.csproj", "{9F26ABF4-4288-4C56-89E2-C590BABCC625}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.PresentationTier", "1.PresentationTier", "{54FB7206-67E0-4493-9CAC-2806AF336550}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.BusinessTier", "2.BusinessTier", "{EB737798-4E1E-4900-BC51-5BEFF69F6DF0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.InfrastructureTier", "3.InfrastructureTier", "{A6007749-D49D-49F1-9665-B99F78FF94EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Transversal", "4.Transversal", "{32C37799-9E3B-4B01-BCB8-4B8F0C733A4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileStudents.Business.Rules", "..\VuelingFileStudents.Business.Rules\VuelingFileStudents.Business.Rules.csproj", "{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileStudents.Infrastructure.Repository", "..\VuelingFileStudents.Infrastructure.Repository\VuelingFileStudents.Infrastructure.Repository.csproj", "{280EF615-FB32-4B22-BD59-B253DB13D577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VuelingFileStudents.Transversal.Utilities", "..\VuelingFileStudents.Transversal.Utilities\VuelingFileStudents.Transversal.Utilities.csproj", "{5545B6CC-A446-4CFC-8685-C3D9A930F289}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +29,27 @@ Global
 		{9F26ABF4-4288-4C56-89E2-C590BABCC625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F26ABF4-4288-4C56-89E2-C590BABCC625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F26ABF4-4288-4C56-89E2-C590BABCC625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280EF615-FB32-4B22-BD59-B253DB13D577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280EF615-FB32-4B22-BD59-B253DB13D577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280EF615-FB32-4B22-BD59-B253DB13D577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280EF615-FB32-4B22-BD59-B253DB13D577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5545B6CC-A446-4CFC-8685-C3D9A930F289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5545B6CC-A446-4CFC-8685-C3D9A930F289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5545B6CC-A446-4CFC-8685-C3D9A930F289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5545B6CC-A446-4CFC-8685-C3D9A930F289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F26ABF4-4288-4C56-89E2-C590BABCC625} = {54FB7206-67E0-4493-9CAC-2806AF336550}
+		{84A9167C-8F1C-4DDE-9A64-27C844CA1B0F} = {EB737798-4E1E-4900-BC51-5BEFF69F6DF0}
+		{280EF615-FB32-4B22-BD59-B253DB13D577} = {A6007749-D49D-49F1-9665-B99F78FF94EF}
+		{5545B6CC-A446-4CFC-8685-C3D9A930F289} = {32C37799-9E3B-4B01-BCB8-4B8F0C733A4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6D9BDFB-93F1-4646-8928-065455393E0A}
