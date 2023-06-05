@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using VuelingFileStudents.Transversal.Utilities.Models;
 
 namespace VuelingFileStudents
 {
@@ -11,7 +12,6 @@ namespace VuelingFileStudents
         private Label lbSave;
         private Button btnSave;
         private TextBox tbName;
-        private TextBox tbBirthday;
         private TextBox tbSurname;
         private RadioButton rdbTxt;
         private RadioButton rdbXml;
@@ -32,11 +32,11 @@ namespace VuelingFileStudents
             this.lbSave = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
-            this.tbBirthday = new System.Windows.Forms.TextBox();
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.rdbTxt = new System.Windows.Forms.RadioButton();
             this.rdbXml = new System.Windows.Forms.RadioButton();
             this.rdbJson = new System.Windows.Forms.RadioButton();
+            this.dtBirthday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lbName
@@ -83,6 +83,7 @@ namespace VuelingFileStudents
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // tbName
             // 
@@ -91,14 +92,6 @@ namespace VuelingFileStudents
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(391, 42);
             this.tbName.TabIndex = 7;
-            // 
-            // tbBirthday
-            // 
-            this.tbBirthday.Location = new System.Drawing.Point(428, 182);
-            this.tbBirthday.Multiline = true;
-            this.tbBirthday.Name = "tbBirthday";
-            this.tbBirthday.Size = new System.Drawing.Size(391, 46);
-            this.tbBirthday.TabIndex = 8;
             // 
             // tbSurname
             // 
@@ -141,14 +134,21 @@ namespace VuelingFileStudents
             this.rdbJson.Text = "JSON";
             this.rdbJson.UseVisualStyleBackColor = true;
             // 
+            // dtBirthday
+            // 
+            this.dtBirthday.Location = new System.Drawing.Point(428, 208);
+            this.dtBirthday.Name = "dtBirthday";
+            this.dtBirthday.Size = new System.Drawing.Size(391, 26);
+            this.dtBirthday.TabIndex = 13;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1073, 384);
+            this.Controls.Add(this.dtBirthday);
             this.Controls.Add(this.rdbJson);
             this.Controls.Add(this.rdbXml);
             this.Controls.Add(this.rdbTxt);
             this.Controls.Add(this.tbSurname);
-            this.Controls.Add(this.tbBirthday);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lbSave);
@@ -160,6 +160,55 @@ namespace VuelingFileStudents
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void RadioButton()
+        {
+          
+            var formatFileTxt = new VuelingFileStudents.Business.Rules.StudentBR().ExportTXT();
+            var formatFileXml = new VuelingFileStudents.Business.Rules.StudentBR().ExportXML();
+            var formatFileJson = new VuelingFileStudents.Business.Rules.StudentBR().ExportJson();
+
+            if (this.rdbTxt.Checked)
+            {
+                formatFileTxt = this.rdbTxt;
+            }
+
+            if (this.rdbXml.Checked==true)
+            {
+                formatFileXml = this.rdbXml.Text;
+            }
+
+            if (this.rdbJson.Checked)
+            {
+                formatFileJson = this.rdbJson.Text;
+            }
+
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+           try
+           {
+               
+                
+
+                var name = tbName.Text;
+                var surname = tbSurname.Text;
+                var birthday = dtBirthday;
+
+                Student student = new Student(name,surname,birthday);
+                RadioButton();
+
+            }
+            catch (Exception)
+           {
+                //var log = new VuelingFileStudents.Business.Rules.LogsBR();
+                //MessageBox.Show(ex + Convert.ToString(log));
+                MessageBox.Show( "No se puede guardar");
+           }
+
+            
         }
     }
 }

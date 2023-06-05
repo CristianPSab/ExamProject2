@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VuelingFileStudents.Business.Rules
+namespace VuelingFileStudents.Transversal.Utilities.Utilities
 {
-    internal class ValidationsBR
+    internal class Logs
     {
     }
 }
