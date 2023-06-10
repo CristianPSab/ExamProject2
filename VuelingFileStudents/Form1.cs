@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using VuelingFileStudents.Business.Rules;
 using VuelingFileStudents.Transversal.Utilities.Models;
 
 namespace VuelingFileStudents
@@ -104,6 +105,7 @@ namespace VuelingFileStudents
             // rdbTxt
             // 
             this.rdbTxt.AutoSize = true;
+            this.rdbTxt.Checked = true;
             this.rdbTxt.Location = new System.Drawing.Point(428, 274);
             this.rdbTxt.Name = "rdbTxt";
             this.rdbTxt.Size = new System.Drawing.Size(63, 24);
@@ -119,7 +121,6 @@ namespace VuelingFileStudents
             this.rdbXml.Name = "rdbXml";
             this.rdbXml.Size = new System.Drawing.Size(67, 24);
             this.rdbXml.TabIndex = 11;
-            this.rdbXml.TabStop = true;
             this.rdbXml.Text = "XML";
             this.rdbXml.UseVisualStyleBackColor = true;
             // 
@@ -130,7 +131,6 @@ namespace VuelingFileStudents
             this.rdbJson.Name = "rdbJson";
             this.rdbJson.Size = new System.Drawing.Size(76, 24);
             this.rdbJson.TabIndex = 12;
-            this.rdbJson.TabStop = true;
             this.rdbJson.Text = "JSON";
             this.rdbJson.UseVisualStyleBackColor = true;
             // 
@@ -165,46 +165,45 @@ namespace VuelingFileStudents
         private void RadioButton()
         {
           
-            var formatFileTxt = new VuelingFileStudents.Business.Rules.StudentBR().ExportTXT();
-            var formatFileXml = new VuelingFileStudents.Business.Rules.StudentBR().ExportXML();
-            var formatFileJson = new VuelingFileStudents.Business.Rules.StudentBR().ExportJson();
+           
 
-            if (this.rdbTxt.Checked)
+            if (this.rdbTxt.Checked==false)
             {
-                formatFileTxt = this.rdbTxt;
+                this.rdbTxt.Checked.Equals(true);
             }
 
-            if (this.rdbXml.Checked==true)
+            if (this.rdbXml.Checked==false)
             {
-                formatFileXml = this.rdbXml.Text;
+                this.rdbXml.Checked.Equals(true);
             }
 
-            if (this.rdbJson.Checked)
+            if (this.rdbJson.Checked==false)
             {
-                formatFileJson = this.rdbJson.Text;
+                this.rdbJson.Checked.Equals(true);
             }
-
+            
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
            try
            {
-               
-                
+              //  RadioButton();
+
 
                 var name = tbName.Text;
                 var surname = tbSurname.Text;
                 var birthday = dtBirthday;
 
-                Student student = new Student(name,surname,birthday);
-                RadioButton();
+                var studentBR = new StudentBR();
+                var student = new StudentModel(name, surname, birthday);
+                studentBR.SaveToTXT(student);
+            
 
             }
             catch (Exception)
            {
-                //var log = new VuelingFileStudents.Business.Rules.LogsBR();
-                //MessageBox.Show(ex + Convert.ToString(log));
+                
                 MessageBox.Show( "No se puede guardar");
            }
 
