@@ -17,7 +17,7 @@ namespace VuelingFileStudents
         private RadioButton rdbTxt;
         private RadioButton rdbXml;
         private RadioButton rdbJson;
-        private Label label1;
+        
 
         public Form1 () 
         {

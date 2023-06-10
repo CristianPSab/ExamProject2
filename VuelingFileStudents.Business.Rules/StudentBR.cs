@@ -13,20 +13,19 @@ namespace VuelingFileStudents.Business.Rules
  
     public class StudentBR
     {
-        StudentRepository studentRepository = new StudentRepository();
+       // StudentRepository studentRepository = new StudentRepository(StudentModel studentModel);
         List<Transversal.Utilities.Models.StudentModel> student = new List<Transversal.Utilities.Models.StudentModel>();
-        public List<StudentModel> SaveToJson ()
+        public List<StudentModel> SaveToJson (StudentModel studentModel)
         {
-            
-            string json = string .Empty;
-            if(json.Equals(false))
-            {
 
-            //    var saveJson = studentR.SaveFileJson();
-            }
+            var studentRepository = new VuelingFileStudents.Infrastructure.Repository.StudentRepository();
+            var ExportTxt = studentRepository.ExportTXT(studentModel);
 
-            return null;
-           
+
+
+
+            return student.ToList();
+
         }
 
    
