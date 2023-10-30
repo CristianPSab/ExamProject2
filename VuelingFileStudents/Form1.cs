@@ -14,14 +14,12 @@ namespace VuelingFileStudents
         private Button btnSave;
         private TextBox tbName;
         private TextBox tbSurname;
-        private RadioButton rdbTxt;
-        private RadioButton rdbXml;
-        private RadioButton rdbJson;
         
 
         public Form1 () 
         {
             InitializeComponent();
+            InitializeComboBox();
 
         }
 
@@ -34,10 +32,8 @@ namespace VuelingFileStudents
             this.btnSave = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.tbSurname = new System.Windows.Forms.TextBox();
-            this.rdbTxt = new System.Windows.Forms.RadioButton();
-            this.rdbXml = new System.Windows.Forms.RadioButton();
-            this.rdbJson = new System.Windows.Forms.RadioButton();
             this.dtBirthday = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbName
@@ -45,7 +41,7 @@ namespace VuelingFileStudents
             this.lbName.AutoSize = true;
             this.lbName.Location = new System.Drawing.Point(164, 69);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(69, 20);
+            this.lbName.Size = new System.Drawing.Size(93, 25);
             this.lbName.TabIndex = 0;
             this.lbName.Text = "Nombre:";
             // 
@@ -54,7 +50,7 @@ namespace VuelingFileStudents
             this.lbSurname.AutoSize = true;
             this.lbSurname.Location = new System.Drawing.Point(164, 139);
             this.lbSurname.Name = "lbSurname";
-            this.lbSurname.Size = new System.Drawing.Size(77, 20);
+            this.lbSurname.Size = new System.Drawing.Size(106, 25);
             this.lbSurname.TabIndex = 1;
             this.lbSurname.Text = "Apellidos:";
             // 
@@ -63,7 +59,7 @@ namespace VuelingFileStudents
             this.lbBirthday.AutoSize = true;
             this.lbBirthday.Location = new System.Drawing.Point(164, 208);
             this.lbBirthday.Name = "lbBirthday";
-            this.lbBirthday.Size = new System.Drawing.Size(170, 20);
+            this.lbBirthday.Size = new System.Drawing.Size(230, 25);
             this.lbBirthday.TabIndex = 2;
             this.lbBirthday.Text = "Fecha de cumpleaños:";
             // 
@@ -72,7 +68,7 @@ namespace VuelingFileStudents
             this.lbSave.AutoSize = true;
             this.lbSave.Location = new System.Drawing.Point(74, 276);
             this.lbSave.Name = "lbSave";
-            this.lbSave.Size = new System.Drawing.Size(153, 20);
+            this.lbSave.Size = new System.Drawing.Size(204, 25);
             this.lbSave.TabIndex = 3;
             this.lbSave.Text = "Guardar en formato:";
             // 
@@ -102,52 +98,27 @@ namespace VuelingFileStudents
             this.tbSurname.Size = new System.Drawing.Size(391, 42);
             this.tbSurname.TabIndex = 9;
             // 
-            // rdbTxt
-            // 
-            this.rdbTxt.AutoSize = true;
-            this.rdbTxt.Checked = true;
-            this.rdbTxt.Location = new System.Drawing.Point(428, 274);
-            this.rdbTxt.Name = "rdbTxt";
-            this.rdbTxt.Size = new System.Drawing.Size(63, 24);
-            this.rdbTxt.TabIndex = 10;
-            this.rdbTxt.TabStop = true;
-            this.rdbTxt.Text = "TXT";
-            this.rdbTxt.UseVisualStyleBackColor = true;
-            // 
-            // rdbXml
-            // 
-            this.rdbXml.AutoSize = true;
-            this.rdbXml.Location = new System.Drawing.Point(600, 276);
-            this.rdbXml.Name = "rdbXml";
-            this.rdbXml.Size = new System.Drawing.Size(67, 24);
-            this.rdbXml.TabIndex = 11;
-            this.rdbXml.Text = "XML";
-            this.rdbXml.UseVisualStyleBackColor = true;
-            // 
-            // rdbJson
-            // 
-            this.rdbJson.AutoSize = true;
-            this.rdbJson.Location = new System.Drawing.Point(734, 274);
-            this.rdbJson.Name = "rdbJson";
-            this.rdbJson.Size = new System.Drawing.Size(76, 24);
-            this.rdbJson.TabIndex = 12;
-            this.rdbJson.Text = "JSON";
-            this.rdbJson.UseVisualStyleBackColor = true;
-            // 
             // dtBirthday
             // 
             this.dtBirthday.Location = new System.Drawing.Point(428, 208);
             this.dtBirthday.Name = "dtBirthday";
-            this.dtBirthday.Size = new System.Drawing.Size(391, 26);
+            this.dtBirthday.Size = new System.Drawing.Size(391, 31);
             this.dtBirthday.TabIndex = 13;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(428, 273);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(391, 33);
+            this.comboBox1.TabIndex = 14;
+           
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1073, 384);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dtBirthday);
-            this.Controls.Add(this.rdbJson);
-            this.Controls.Add(this.rdbXml);
-            this.Controls.Add(this.rdbTxt);
             this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.btnSave);
@@ -162,52 +133,61 @@ namespace VuelingFileStudents
 
         }
 
-        private void RadioButton()
+        private void InitializeComboBox()
         {
-          
-           
+            var txt = ".txt";
+            var xml = ".xml";
+            var json = ".json";
+            this.comboBox1.Items.Add(txt);
+            this.comboBox1.Items.Add(xml);
+            this.comboBox1.Items.Add(json);
 
-            if (this.rdbTxt.Checked==false)
-            {
-                this.rdbTxt.Checked.Equals(true);
-            }
 
-            if (this.rdbXml.Checked==false)
-            {
-                this.rdbXml.Checked.Equals(true);
-            }
-
-            if (this.rdbJson.Checked==false)
-            {
-                this.rdbJson.Checked.Equals(true);
-            }
-            
         }
+
+
+
+
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-           try
-           {
-              //  RadioButton();
-
+         
+                var studentb = new StudentModel();
 
                 var name = tbName.Text;
                 var surname = tbSurname.Text;
-                var birthday = dtBirthday;
+                var birthday = dtBirthday.Value;
+
 
                 var studentBR = new StudentBR();
                 var student = new StudentModel(name, surname, birthday);
-                studentBR.SaveToTXT(student);
-            
+
+                try
+                {
+                    object selectedFormat = comboBox1.SelectedItem;
+
+                    if (selectedFormat != null)
+                    {
+
+
+                        studentBR.ProcessStudentData(tbName.Text, tbSurname.Text, dtBirthday.Value, selectedFormat.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("El formato está mal");
+                    }
+
+                    MessageBox.Show("Documento generado con éxito");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex + "Error al generar el documento");
+                    throw;
+                }
+
 
             }
-            catch (Exception)
-           {
-                
-                MessageBox.Show( "No se puede guardar");
-           }
 
-            
-        }
+       
     }
 }

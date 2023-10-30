@@ -37,6 +37,7 @@ namespace VuelingFileStudents
         #endregion
 
         private DateTimePicker dtBirthday;
+        private ComboBox comboBox1;
     }
 }
 
