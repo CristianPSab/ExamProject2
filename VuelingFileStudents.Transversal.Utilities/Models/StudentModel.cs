@@ -16,18 +16,22 @@ namespace VuelingFileStudents.Transversal.Utilities.Models
         public string Name { get; set; }
 
         public string Surname { get; set; }
-        public DateTimePicker Birthday { get; set; }
-     
+        public DateTime Birthday { get; set; }
 
-        
+        public int Age { get; set; }
 
-        public StudentModel(string name, string surname, DateTimePicker birthday)
+        public StudentModel() { }
+
+
+        public StudentModel(string name, string surname, DateTime birthday)
         {
            
             Guid = Guid.NewGuid();
             Name = name;
             Surname = surname;
             Birthday = birthday;
+
+            Age = CalculateAge(birthday);
         }
 
         public override bool Equals(object obj)
@@ -37,7 +41,7 @@ namespace VuelingFileStudents.Transversal.Utilities.Models
                    Guid.Equals(model.Guid) &&
                    Name == model.Name &&
                    Surname == model.Surname &&
-                   EqualityComparer<DateTimePicker>.Default.Equals(Birthday, model.Birthday);
+                   EqualityComparer<DateTime>.Default.Equals(Birthday, model.Birthday);
         }
 
         public override int GetHashCode()
@@ -47,17 +51,29 @@ namespace VuelingFileStudents.Transversal.Utilities.Models
             hashCode = hashCode * -1521134295 + Guid.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Surname);
-            hashCode = hashCode * -1521134295 + EqualityComparer<DateTimePicker>.Default.GetHashCode(Birthday);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(Birthday);
             return hashCode;
         }
 
         public override string ToString()
         {
             return $"Id: , {Id}  , " +
-                $"Guid: , {Guid}" +
-                $"Name: , {Name}" +
-                $"Surname: , {Surname}" +
-                $"Birthday: , {Birthday}";
+               $"Guid: , {Guid} ," +
+               $"Name: , {Name} ," +
+               $"Surname: , {Surname} ," +
+               $"Birthday: , {Birthday} ," +
+               $"Age: , {Age}";
+        }
+
+        public static int CalculateAge(DateTime birthday)
+        {
+            var today = DateTime.Today;
+            var ages = today.Year - birthday.Year;
+            if (birthday > today.AddYears(ages))
+            {
+                ages--;
+            }
+            return ages;
         }
     }
 }
