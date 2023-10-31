@@ -13,43 +13,50 @@ namespace VuelingFileStudents.Business.Rules
  
     public class StudentBR
     {
-       // StudentRepository studentRepository = new StudentRepository(StudentModel studentModel);
-        List<Transversal.Utilities.Models.StudentModel> student = new List<Transversal.Utilities.Models.StudentModel>();
-        public List<StudentModel> SaveToJson (StudentModel studentModel)
+        private readonly StudentRepository studentR = new StudentRepository();
+        private readonly List<StudentModel> listStudent = new List<StudentModel>();
+
+        public void ProcessStudentData(string name, string surname, DateTime birthday, string format)
         {
-
-            var studentRepository = new VuelingFileStudents.Infrastructure.Repository.StudentRepository();
-            var ExportTxt = studentRepository.ExportTXT(studentModel);
-
-
-
-
-            return student.ToList();
-
+            var estudiante = new StudentModel(name, surname, birthday);
+            estudiante.Id = estudiante.Id++;
+            listStudent.Add(estudiante);
+            ExportData(format);
         }
 
-   
-        public List<StudentModel>   SaveToTXT(StudentModel studentModel)
+        private void ExportData(string format)
         {
-
-            var studentRepository = new VuelingFileStudents.Infrastructure.Repository.StudentRepository();
-            var ExportTxt = studentRepository.ExportTXT(studentModel);
-
-          
-          
-        
-            return student.ToList();
-        }
-
-        public object SaveToXML()
-        {
-            string xml = string.Empty;
-            if(xml.Equals(false))
+            switch (format)
             {
-            //    var saveXml = studentR.SaveFileXML(); 
-            }
+                case ".txt":
 
-            return null;
+                    studentR.ExportTXT(listStudent);
+                    break;
+
+
+
+                case ".xml":
+
+                    studentR.ExportXML(listStudent);
+                    break;
+
+
+
+                case ".json":
+                    studentR.ExportJson(listStudent);
+                    break;
+
+
+
+                default:
+                    studentR.ExportTXT(listStudent);
+                    break;
+            }
         }
+
+       
+   
+      
+
     }
 }
