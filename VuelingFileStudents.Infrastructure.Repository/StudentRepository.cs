@@ -1,41 +1,54 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using VuelingFileStudents.Transversal.Utilities.Models;
 
 namespace VuelingFileStudents.Infrastructure.Repository
 {
     public class StudentRepository
     {
-        public string ExportJson()
+        public static string nombreArchivo = "ficheroEstudiantes";
+        public void ExportJson(List<StudentModel> studentModel)
         {
-            return "";
+            var path = $"{nombreArchivo}.json";
+            string jsonString = JsonConvert.SerializeObject(studentModel);
+            File.WriteAllText(path, jsonString);
+
         }
 
-        public string  ExportTXT(StudentModel studentModel)
+        public void ExportTXT(List<StudentModel> studentModel)
         {
-            var txt = studentModel.ToString();
+            var path = $"{nombreArchivo}.txt";
 
-            string path = "C:\\Users\\cristianps\\Documents\\Ficheros\\ficheroTxt.txt";
-
-
-          
-            
-                using (StreamWriter sw = File.AppendText(path))
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                foreach (var student in studentModel)
                 {
-                    sw.WriteLine(txt);
+                    sw.WriteLine(student.ToString());
                 }
-
-
-            return "";
+            }
         }
 
-        public string ExportXML()
+
+
+        public void ExportXML(List<StudentModel> studentModel)
         {
-            return "";
+            var path = $"{nombreArchivo}.xml";
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<StudentModel>));
+
+            using (StreamWriter fileWriter = new StreamWriter(path))
+            {
+                serializer.Serialize(fileWriter, studentModel);
+            }
         }
+
+       
     }
 }
